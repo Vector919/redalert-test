@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+		<link rel="icon" href="favicon.ico">
+
+		<title>Redlert2</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="css/starter-template.css" rel="stylesheet">
+		
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		
+		<!--
+		This is the bootstrap starter template.
+		
+		Add these later for looks?
+		https://silviomoreto.github.io/bootstrap-select/
+		https://daneden.github.io/animate.css/
+		https://t4t5.github.io/sweetalert/
+		https://github.com/igorescobar/jQuery-Mask-Plugin
+		http://vadimg.com/twitter-bootstrap-wizard-example/
+		https://dribbble.com/search?q=contact+list
+		-->
+		
+		
+	</head>
+
+	<body>
+		<!-- setup could be extracted to another page -->
+		
+		<!-- Start Setup -->
+		<div class="container hidden" id="setup0">
+			<!-- collect info page -->
+			<form class="starter-template form-inline">
+				<img src="img/logo.png" style="max-width:100%" />
+				<br />
+				<div class="form-group">
+					<label for="name">Please enter your name:</label>
+					<input type="text" class="form-control" id="name" name="Username" placeholder="Jane Smith" /><!-- this could be potentially pulled from the phone making this page unnecessary. -->
+					<input type="hidden" name="cellphone" value="" /> <!-- populated with backend or JS code -->
+					<br class="visible-xs-block" />
+					<a href="#setup1" class="btn btn-primary" onclick="nextPage()">Next</a>		
+				</div>
+			</form>
+		</div>
+		<!-- add contacts to circle -->
+		<div class="container hidden" id="setup1">
+			<!-- populated from backend or js -->
+			<!-- selected state could be visual with a checkbox type graphic or by changing the color of the row -->
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<td>
+							Add contacts to your circle
+						</td>
+					</tr>
+				</thead>
+				<tbody class="text-center">
+					<tr>
+						<td onclick="console.log(obj=this.getElementsByTagName('input'))">
+							<input type="checkbox" id="uniqueID" value="phoneNumber" />
+							John Smith
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" id="uniqueID" value="phoneNumber" />
+							John Smith
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" id="uniqueID" value="phoneNumber" />
+							John Smith
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" id="uniqueID" value="phoneNumber" />
+							John Smith
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" id="uniqueID" value="phoneNumber" />
+							John Smith
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" id="uniqueID" value="phoneNumber" />
+							John Smith
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="row">
+				<div class="text-center">
+					<div class="btn-group">
+						<a href="#setup0" class="btn btn-primary" onclick="previousPage()">Back</a><a href="#setup2" class="btn btn-primary" onclick="nextPage()">Next</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container hidden" id="setup2">
+			<!-- grab gps coord permissions if they enabled it -->
+			<form class="starter-template">
+				<label for="gps">Share Location</label>
+				<div class="btn-group" data-toggle="buttons">
+					<label class="btn btn-primary active">
+						<input type="radio" name="gps" id="option1" autocomplete="off" checked /> On
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="gps" id="option2" autocomplete="off" /> Off
+					</label>
+					<input type="hidden" name="coord" value="" /> <!-- populated with backend or JS code (unneeded if not pulling via html5 apis) -->
+				</div>
+				<br />
+				<br />
+				<div class="btn-group">
+					<a href="#setup1" class="btn btn-primary" onclick="previousPage()">Back</a><a href="#setup3" class="btn btn-primary" onclick="nextPage()">Next</a>
+				</div>
+			</form>
+
+		</div>
+		<!-- set up alerts -->
+		<div class="container hidden" id="setup3">
+			<!-- some default alert options -->
+			<!-- custom alert message -->
+			<div class="starter-template">
+				Setup the buttons/messages
+				<div class="btn-group">
+					<a href="#setup2" class="btn btn-primary" onclick="previousPage()">Back</a><a href="#main" class="btn btn-primary" onclick="nextPage()">Complete</a>
+					<!-- js to send data along to DB, then load main page -->
+				</div>
+			</div>
+		</div>
+		<!-- End Setup -->
+		
+		<!-- main pages -->
+		<div id="main" class="hidden">
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Redlert2</a>
+					</div>
+					<div id="navbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" id="pageTabs" role="tablist">
+							<li class="active"><a href="#home">Home</a></li>
+							<li><a href="#settings">Settings</a></li>
+							<li><a href="#account">OwnerName</a></li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</nav>
+
+			<div class="container tab-content">
+				
+				<!-- Home -->
+				<div class="starter-template tab-pane active fade in" role="tabpanel" id="home">
+					<h1>Buttons</h1>
+					<p class="lead">Here</p>
+				</div>
+
+				<!-- Settings -->
+				<div class="starter-template tab-pane fade" role="tabpanel" id="settings">
+					<h1>Settings</h1>
+					<p class="lead">Here</p>
+				</div>
+				
+				
+				<!-- Owner Info -->
+				<div class="starter-template tab-pane fade" role="tabpanel" id="account">
+					<h1>Account/Owner Info CRUD</h1>
+					<p class="lead">Here</p>
+				</div>
+				
+				
+			</div><!-- /.container -->
+
+
+		</div>
+		
+		<!-- 
+			Show/hide pages with jQuery + some CSS class transition/animation help 
+			Values can be pulled out of the inputs with the same names as the corresponding fields in the JSON except the GPS coords.
+		-->
+		
+		
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+		<script src="js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="js/ie10-viewport-bug-workaround.js"></script>
+		
+		<script>
+		//extract this to a file for minimization later
+		$(document).ready(function() {
+			$("input[type='checkbox']").parent().click(function(){
+				$(this).toggleClass('info');
+			});                 
+		});
+		
+		$('#pageTabs a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		})
+		
+		var pages = [
+			'setup0',
+			'setup1',
+			'setup2',
+			'setup3',
+			'main'
+		];
+
+		var setup=true; //set backend side if already setup
+		var currentPage=0; //keep track of current page
+		
+		if(setup==false)
+			currentPage=pages.length-1;
+		
+		function hideAll(){
+			for(var i=0; i<pages.length; ++i){
+				($('#'+pages[i]).hasClass('hidden')? null : $('#'+pages[i]).addClass('hidden'));
+			}
+		}
+		function showPage(num=0){
+			hideAll();
+			$('#'+pages[num]).removeClass('hidden').hide().fadeIn(250);
+			
+		}
+		$(document).ready(function() {
+			showPage();
+		});
+		function nextPage(){
+			if(currentPage!==pages.length-1)
+			{
+				showPage(++currentPage);
+			}
+		}
+		function previousPage(){
+			if(currentPage!==0)
+			{
+				showPage(--currentPage);
+			}
+		}
+		</script>
+		
+	</body>
+</html>
